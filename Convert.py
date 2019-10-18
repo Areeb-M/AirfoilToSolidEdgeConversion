@@ -1,10 +1,11 @@
 from math import sin, cos, radians, tan
 
-c = float(input("Chord Length: ")) * 1000  # chord scale
-AoT = radians(float(input("Angle of Twist: ")))  # input: degrees stored: radians
+
 Section = input("Airfoil Section: ")
-offset = float(input("Offset: ")) * 1000
 x_wing = float(input("Y Value: ")) * 1000
+c = float(input("Chord Length: ")) * 1000  # chord length
+offset = float(input("Offset: ")) * 1000
+AoT = radians(float(input("Angle of Twist: ")))  # input: degrees stored: radians
 dihedral = radians(5.0)  # radians
 
 path = input("Relative Input Points File Path: ")
@@ -22,8 +23,8 @@ for point in points:
     output.append(
         [
             x_wing,
-            x - offset,
-            y - x_wing*tan(dihedral)
+            x + offset,
+            y + x_wing*tan(dihedral)
         ]
     )
 
